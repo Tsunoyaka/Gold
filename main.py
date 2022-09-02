@@ -50,7 +50,7 @@ def parse_data_from_cards(cards: ResultSet) -> list:
             image_link = 'Нет картинки'
         obj = {
             'brand': card.get('data-brand'),
-            'title': card.get('data-name'),
+            'title': card.find('h3', class_='title').text,
             'price': float(card.get('data-price')) 
             or 'Нет в наличии',
             'image_link': image_link,
